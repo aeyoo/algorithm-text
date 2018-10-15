@@ -1,1 +1,0 @@
-Git is a distributedversion control system.
