@@ -1,0 +1,2 @@
+# function
+最近复习了一轮JavaScript，打算封装一些JavaScript的常用函数，想要达到熟练掌握JavaScript语法的目的。
