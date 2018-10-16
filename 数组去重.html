@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链上封装函数实现数组去重</title>
+</head>
+<body>
+    <script>
+        //利用对象同一个属性名的属性值不可以出现两次的特性来进行
+        //利用for循环遍历数组每一位，当属性值为undefined时给该属性赋值
+        //将对象中的所有属性加入到新数组上
+        Array.prototype.unique=function(){
+            var temp = {};
+            var arr = [];
+            len = this.length;
+            for(i=0;i<len;i++){
+                if(!temp[this[i]]){
+                    temp[this[i]]="123";
+                    arr.push(this[i])
+                }
+            }
+            return arr;
+        }
+
+    </script>
+</body>
+</html>
