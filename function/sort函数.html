@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的升序降序和乱序</title>
+</head>
+<body>
+    <script>
+        //数组的升序和降序
+        var arr = [1,2,3,4,10,20,30,40]
+        arr.sort();//按照ascll码排序
+        // 在参数内编写函数实现按照数字升序降序排列数组
+        arr.sort(function(a,b){
+            // return a - b;升序
+            return b - a;//降序
+        })
+
+        //数组的乱序
+        arr.sort(function(){
+            return Math.random() - 0.5;
+        })
+
+    </script>
+</body>
+</html>
