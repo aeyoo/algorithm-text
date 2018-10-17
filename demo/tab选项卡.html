@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>tab选项卡</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            width: 400px;
+            height: 100%;
+            position: relative;
+            top: 100px;
+            left: 50%;
+            margin-left: -200px;
+        }
+        .nav{
+            width: 400px;
+            height: 60px;
+            background: rgb(228, 187, 74);
+        }
+        .nav li{
+            list-style: none;
+            float: left;
+            width: 100px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            line-height: 60px;
+            color: rgb(253, 47, 10);
+            font-weight: bold;
+        }
+        .con{
+            list-style: none;
+        }
+        .con li{
+            display: none;
+        }
+        .con li img{
+            width: 400px;
+            size: 100%;
+        }
+        .con .show{
+            display: block;
+        }
+        .current{
+            background: rgb(221, 215, 182);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul class="nav">
+            <li class="current" >第一张</li>
+            <li>第二张</li>
+            <li>第三张</li>
+            <li>第四张</li>
+        </ul>
+        <ul class="con">
+            <li class="show">
+                <img src="http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/0B/ChMkJlXgAruIIY0fAAWWybgMSU0AAB-dQBejb0ABZbh255.jpg" alt="" >
+            </li>
+            <li>
+                <img src="http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/0B/ChMkJlXgAsCIFj7kAALAJNOzax8AAB-dQMcgm8AAsA8639.jpg" alt="">
+            </li>
+            <li>
+                <img src="http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/0B/ChMkJ1XgAraIXQ8DAASFZpn_LacAAB-dAGXZOMABIV-533.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://img3.cache.netease.com/photo/0031/2015-09-25/B4C937NU5VOJ0031.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script>
+        // $(".nav li").mouseenter(function(){
+        //     //1. 修改被移入选项卡的背景颜色
+        //     $(this).addClass("current");
+        //     //2. 获取当前选项卡的索引
+        //     var index = $(this).index();
+        //     //3. 根据索引找到对应的图片
+        //      var $img=$(".con>li>img").eq(index);
+        //     //4. 显示找到的图片
+        //     $img.addClass("show");
+        // })
+        // $(".nav li").mouseleave(function(){
+        //     //1. 还原被移入选项卡的背景颜色
+        //     $(this).removeClass("current");
+        //     //2. 获取当前选项卡的索引
+        //     var index = $(this).index();
+        //     //3. 根据索引找到对应的图片
+        //      var $img=$(".con>li>img").eq(index);
+        //     //4. 隐藏找到的图片
+        //     $img.removeClass("show");
+        // })略显墨迹的写法
+
+        //精简之后
+         $(".nav li").mouseenter(function(){
+            //1. 修改被移入选项卡的背景颜色
+            $(this).addClass("current");
+            //2.还原兄弟选择项卡的颜色
+            $(this).siblings().removeClass("current");
+            //3.获取当前选项卡的索引
+            var index = $(this).index();
+            //4.根据索引找到对应的图片
+             var $img=$(".con>li").eq(index);
+            //5.隐藏其他图片
+            $img.siblings().removeClass("show");
+            //6.显示找到的图片
+            $img.addClass("show");
+         })
+    </script>
+</body>
+</html>
