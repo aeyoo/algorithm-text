@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯模式</title>
+</head>
+<body>
+    <script>
+        //实现可以更改自己的原型链且不改变继承父级的原型链
+        function inherit(Targat, Origin){
+            function F() {};
+            F.prototype = Origin.prototype;
+            Targat.prototype = new F();
+            Targat.prototype.constuctor = Targat;// 不写的话constuctor指向Origin
+            Targat.prototype.uber = Origin.prototype;//超类
+        }
+    </script>
+</body>
+</html>
