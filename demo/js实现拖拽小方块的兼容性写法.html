@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽小方块</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #f40;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>   
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        function drag(elem){
+            var disX,
+            disY;
+            addEvent(elem, "mousedown", function(e){
+            var event = e || window.event;
+            disX = event.pageX - parseInt(getStyle(elem,"left"));
+            disY = event.pageY - parseInt(getStyle(elem,"top"));
+            addEvent(document, 'mousemove', mouseMove);
+            addEvent(document, 'mouseup', mouseUp);
+            event.preventDefault();
+            event.stopPropagation();
+         });
+        function mouseUp(e) {
+            var event = e || window.event;
+            removeEvent(document, 'mousemove', mouseMove);
+            removeEvent(document, 'mouseup', mouseUp);
+        }
+        function mouseMove(e) {
+            var event = e || window.event;
+            elem.style.left = event.pageX - disX + "px";
+            elem.style.top = event.pageY - disY + "px";  
+            console.log();
+                 
+        }
+        function addEvent (target, eventType, handler){
+	        if(target.addEventListener){
+		        addEvent = function(target, eventType, handler){
+			    target.addEventListener(eventType, handler, false);
+                };
+	    }else{
+		    addEvent = function(target, eventType, handler){
+			target.attachEvent("on"+eventType, handler);
+		        };		
+	        }
+	    addEvent(target, eventType, handler);
+        }
+        function removeEvent (target, eventType, handler){
+	        if(target.removeEventListener){
+		        removeEvent = function(target, eventType, handler){
+			    target.removeEventListener(eventType, handler, false);
+		        }		
+            }else{
+		        removeEvent = function(target, eventType, handler){
+			    target.detachEvent("on"+eventType, handler);
+                }		
+            }
+	        removeEvent(target, eventType, handler);
+        }
+        function getStyle(obj, attr){
+            if(obj.currentStyle){
+                return obj.currentStyle[attr];
+            }else {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }        
+    }
+    drag (div);      
+    </script>
+</body>
+</html>
