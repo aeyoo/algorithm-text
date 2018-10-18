@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js文件的异步加载</title>
+</head>
+<body>
+    <script>
+        function loadScript(url , callback){
+            var script = document.createElement('script');
+            script.type = "text/javascript";
+            if(script.readyState){
+                script.onreadystatechange = function(){
+                    //IE
+                    if(script.readyState == "come=plete" || script.readyState == "loaded"){
+                        tools[callbacks]();
+                    }
+                }
+            }else{
+                script.onload = function (){
+                    //Safari chrome firefox opera 
+                    tools[callback]();
+                }
+            }
+            script.src = url ;
+            document.head.appendChild(script);
+        }
+        loadScript("demo.js" , "test");
+    </script>
+</body>
+</html>
