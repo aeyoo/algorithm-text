@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阻止默认事件，阻止冒泡捕获</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        .con{
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #f40;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="box"></div>
+    </div>
+    <script>
+        var con = $('.con');
+        var box = $('.box');
+        box.click(function(){
+            alert('a');
+            stopBubble();
+        })
+        con.click(function(){
+            alert('b');
+        })
+        function stopBubble (e){
+            var event = e || window.event;
+            if(event.stopPropagation){
+                event.stopPropagation();//w3c
+            }else{
+                event.cancleBubble=true;//ie
+            }
+        }
+        function stopDefault(e){
+            var event = e ||window.event;
+            if(document.all){
+                //支持IE
+                event.returnValue = false;
+            }else{
+                //IE不支持
+                event.preventDefault();
+            }
+        } 
+        document.oncontextmenu = function(e){
+            console.log('c');
+            stopDefault(e);
+        }
+    </script>
+</body>
+</html>
