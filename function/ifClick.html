@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 判断鼠标行为是点击还是拖拽</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: rgb(243, 2, 2);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        function ifClick (ele,e){
+            var event = e || window.event;
+            var firstTime = 0;
+            var lastTime = 0;
+            
+            ele.onmousedown =function(){
+                var date1 = new Date();
+               firstTime = date1.getTime();
+               console.log(firstTime);   
+            }
+            ele.onmouseup =function(){
+                var date2 = new Date();
+               lastTime = date2.getTime();
+               console.log(lastTime);  
+               if(lastTime-firstTime > 1000){
+                console.log('drag');
+                }else{
+                console.log('click');
+                }
+            }       
+        }
+        ifClick(div);
+    </script>
+</body>
+</html>
