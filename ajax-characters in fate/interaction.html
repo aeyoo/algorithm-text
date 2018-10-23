@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个小的交互demo</title>
+    <script src="jq.js"></script>
+    <script src="myAjax.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .main{
+            background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540886523&di=c869086ea3d3f80f6da4465a0022cdce&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201504%2F06%2F20150406H3521_RcCEr.jpeg);
+            background-repeat: no-repeat;
+            background-size:100%;
+            height: 600px;
+            width: 1000px;
+            position: relative;
+            top: 100px;
+            left: 50%;
+            margin-left: -500px;
+        }
+        .title{
+           height:100px;
+           width: 200px;
+           line-height: 100px;
+           color: rgb(253, 253, 253);
+           font-family: Arial, Helvetica, sans-serif;
+           font-weight: bold;
+           font-size: 40px;
+           letter-spacing: 10px;
+           position: absolute;
+           right: 50px;
+           bottom: 0px;
+        }
+        .img{
+            width: 800px;
+            height: 500px;
+            float: left;
+        }
+        .intro{
+            color: rgb(156, 74, 233);
+            text-indent: 2em;
+            line-height: 26px;
+            width: 196px;
+            height: 500px;
+            float: right;
+        }
+        .button{
+            width: 670px;
+            height: 100px;
+            position: absolute;
+            bottom: 0px;
+            left: 70px;
+        }
+        button{
+            cursor: pointer;
+            outline: none;
+            border: none;
+            width: 100px;
+            height: 100px;
+            margin-right: 60px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .button :first-child {
+            background: url(https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=252380563,3824788067&fm=27&gp=0.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .button :nth-child(2) {
+            background:url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3391829342,962997106&fm=26&gp=0.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .button :nth-child(3){
+            background: url(https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=441e20dcc31349547a1eef66664f92dd/fd039245d688d43f9d5509af751ed21b0ff43bea.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .button :nth-child(4) {
+            background: url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3471039395,2606089101&fm=26&gp=0.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="title">人物介绍</div>
+        <div class="img">
+            <img src="" alt="" height="500px" width="800px">
+        </div>
+        <div class="intro">
+                圣杯是传说中可实现持有者一切愿望的宝物。而为了得到圣杯的仪式就被称为圣杯战争。
+                参加圣杯战争的七名由圣杯选出的魔术师被称为Master，与七名被称为Servant的使魔订定契约。他们是由圣杯选择的七位英灵，被分为七个职阶，能获得圣杯的只有一组，这七组人马各自为了成为最后的那一组而互相残杀。
+                在大火灾中失去父母的年幼的卫宫士郎被自称为魔术师的卫宫切嗣所救，在成为卫宫切嗣养子，十年后，偶然地与Servant中的剑士Saber订定契约，被卷入圣杯战争当中。
+        </div>
+        <div class="button">
+            <button name="Emiya"></button>
+            <button name="Saber"></button>
+            <button name="Archer"></button>
+            <button name="Lin"></button>
+        </div>
+    </div>
+    <script>
+        var obj ={
+        "eq0":$('button').eq(0),
+        "eq1":$('button').eq(1),
+        "eq2":$('button').eq(2),
+        "eq3":$('button').eq(3)
+        }
+        for(var i=0;i<4;i++){
+            (function(i){
+                var index =(obj["eq"+i]);
+                index.click(function(){
+                    myAjax({
+                        data:{},
+                        jsonp:"text",
+                        type:"post",
+                        url:"fate.php",
+                        success:function(xmlhttp){
+                            var name = index.attr("name");
+                            var str = xmlhttp.responseText;
+                            var obj = JSON.parse(str);
+                            var sub = obj[name];
+                            $('div').eq(1).html(sub.title);
+                            $('div').eq(3).html(sub.intro);
+                            $('img').attr("src",sub.img);    
+                        },
+                        error:function(xmlhttp){
+                            console.log(xmlhttp.status);   
+                        }
+                    })
+                })
+            }(i))
+        }
+    </script>
+</body>
+</html>

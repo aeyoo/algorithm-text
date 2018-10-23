@@ -1,0 +1,22 @@
+{
+    "Emiya":{
+        "title":"卫宫士郎",
+        "intro":"穗群原学园高中部二年级学生丶见习中的魔术师丶十年前冬木（Fuyuki）市大火中的少数生还者之一。被身为魔术师的卫宫切嗣所救并收养，受卫宫切嗣的影响，是个英雄迷，并发誓长大之後一定要成为「正义的夥伴」拯救所有受到苦难的人们。虽然是魔术师，不过除了构造把握、强化和投影以外，只有半吊子入门水平的魔术能力。",
+        "img":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540898728&di=47c77948f1a3920f835b1b07b2c7c3ab&imgtype=jpg&er=1&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F4e52d0ee929589edd0061c992e1a60c795efdde3.jpg"
+    },
+    "Saber":{
+        "title":"Saber",
+        "intro":"言简意赅、冷酷无情的性格使她看上去和阿尔托利亚完全不同，但是深入接触之后就会发觉，她最根本的地方并没有任何改变。即使生前未曾落入过邪道哪怕一次的阿尔托利亚，在她的心中、迷茫与纠葛、对于自身的不满以及对世事的叹息也依然是存在着的。黑化的姿态正是由于诅咒的侵蚀使得这些感情变得表面化、使她的思想反转所致。其目的、理想本身并未发生改变，只是通常的阿尔托利亚为了理想而洁身自好、黑化的阿尔托利亚则认为能实现理想，即使是暴政也是可行的手段",
+        "img":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540898745&di=9a12f2dd872b41c78f1bdb5867b5007b&imgtype=jpg&er=1&src=http%3A%2F%2Fpic2.16pic.com%2F00%2F48%2F50%2F16pic_4850341_b.jpg"
+    },
+    "Archer":{
+        "title":"Archer",
+        "intro":"以远距离攻击为特长的职阶，条件并非能力值的高低，而是具有强力射击类型武器，或者与射击武器有关联的特殊能力，因此普遍具有性能强大的宝具。作为侦察兵的素质也很高，除拥有作为骑士的【对魔力】之外，还有【单独行动】的职阶技能，即便御主一时不给予魔力供应与支援也能保持存在，御主可以利用这项特质，将原本要用来维持Servant的魔力移用在行使魔术上。",
+        "img":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540898811&di=9a933b65a33f4bbc5a5b9da7e299d4cb&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201707%2F09%2F20170709215345_5Bhan.jpeg"
+    },
+    "Lin":{
+        "title":"远坂凛",
+        "intro":"与士郎在同一个学园读书的美女魔术师。为有着悠久历史的魔术名门远坂家的继承人，而远坂家世代为冬木市这块土地的管理者，继承先父的遗志参加圣杯战争。在学校扮演着优等生的身份，但事实她是一名爱嘲讽和作弄别人的小恶魔型少女，但同时也是一个爱照顾人的大姐姐（为傲娇的代表人物之一）。作为魔术师有着高强的实力。",
+        "img":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540898824&di=102dd33d432a509b328d1125ded2b92a&imgtype=jpg&er=1&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F7e3e6709c93d70cf367a3309fedcd100baa12b35.jpg"
+    }
+}
