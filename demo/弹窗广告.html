@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹窗广告</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .ad{
+            display: none;
+            width: 400px;
+            height: 250px;
+            background: rgb(49, 237, 243);
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+        .x{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: #f40;
+        }
+    </style>
+</head>
+<body>
+    <div class="ad">
+        <span class="x"></span>
+    </div>
+    <script>
+        $(".x").click(function(){
+            $('.ad').removeClass("ad");
+            $(".x").removeClass("x")
+        })
+        $('.ad').stop().slideDown(1000).fadeOut(1000).fadeIn(1000);
+    </script>
+</body>
+</html>
