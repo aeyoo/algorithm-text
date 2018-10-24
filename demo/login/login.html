@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登陆界面</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .main{
+
+        }
+        .login{
+            display: none;
+            width: 400px;
+            height: 200px;
+            border: 1px solid beige;
+            position: fixed;
+            left: 50%;
+            top: 30%;
+            margin-left: -200px;
+        }
+        input{
+            float: right;
+
+        }
+        .user{
+            width: 270px;
+            position: absolute;
+            top: 30%;
+            left: 65px;
+        }
+        .x{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: url(x.png);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .x:hover{
+
+        }
+        .button{
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            margin-left: -40px;
+            bottom: -50px;
+            cursor: pointer;
+            background: rgb(254, 175, 30);
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .show{
+            display:block;
+        }
+        .gray{
+            color: rgba(0, 0, 0, 0.342)
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <button class="go">点击登陆</button>
+        <div class="login">
+            <div class="user">
+                uesrname：<input type="text" value="请输入用户名" style="color:rgba(0, 0, 0, 0.315)">
+                <br><br>
+                password：<input type="password" value="请输入密码" style="color:rgba(0, 0, 0, 0.315)">
+                <br>
+                <button class="button">Login</button>
+            </div>
+            <span class="x">                
+            </span>
+        </div>
+    </div>
+    <script>
+        $('.go').click(
+            function(){
+                $('.login').addClass("show");
+            }
+        )
+        $('span').click(
+            function(){
+                $('.login').removeClass("show");
+            }
+        )
+        $('.button').click(
+            function(){
+                $('.login').removeClass("show");
+            }
+        )
+        $('input').eq(0).focus(
+            function(){
+                if($('input').eq(0).val() == "请输入用户名"){
+                    $('input').eq(0).val("");
+                    $('input').eq(0).css('color',"#000");
+                }
+            }
+        )
+        $('input').eq(0).blur(
+            function(){
+                if($('input').eq(0).val() == false){
+                    $('input').eq(0).val('请输入用户名');
+                    $('input').eq(0).css('color',"rgba(0, 0, 0, 0.342)");
+                }
+            }
+        )
+        $('input').eq(1).focus(
+            function(){
+                if($('input').eq(1).val() == "请输入密码"){
+                    $('input').eq(1).val("");
+                    $('input').eq(1).css('color',"#000");
+                }
+            }
+        )
+        $('input').eq(1).blur(
+            function(){
+                if($('input').eq(1).val() == false){
+                    $('input').eq(1).val('请输入密码');
+                    $('input').eq(1).css('color',"rgba(0, 0, 0, 0.342)");
+                }
+            }
+        )
+    </script>
+</body>
+</html>
