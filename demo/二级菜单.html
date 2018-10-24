@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二级菜单</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .first{
+            margin: 100px auto;
+            width: 400px;
+            list-style: none;
+        }
+        .first>li{
+            position: relative;
+            line-height: 40px;
+            text-indent: 2em;
+            border: 1px solid rgba(233, 114, 223, 0.966);
+            border-bottom: none;
+        }
+        .first>:first-child{
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        .first>:last-child{
+            border-bottom: 1px solid rgba(233, 114, 223, 0.966);
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        span{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 40px;
+            background:url(箭头右.png) center no-repeat;
+            background-size: 50%
+        }
+        .sub{
+            display: none;
+            list-style: none;
+            background: rgb(247, 137, 228);
+        }
+        .sub>li{
+            border: 1px solid #fff;
+        }
+        .sub>li:hover{
+            background: rgba(216, 185, 9, 0.603);
+        }
+        .cursor{
+            transform:rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul class="first">
+        <li>一级菜单<span class="jt"></span><br>
+            <ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单<span class="jt"></span>
+            <ul class="sub">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单<span class="jt"></span>
+            <ul class="sub">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单<span class="jt"></span>
+            <ul class="sub">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+            </ul>
+        </li> 
+        <li>一级菜单<span class="jt"></span>
+            <ul class="sub">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单<span class="jt"></span>
+            <ul class="sub">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+            </ul>
+        </li>    
+        <li>一级菜单<span class="jt"></span>
+            <ul class="sub">
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+                    <li>二级菜单</li>
+            </ul>
+        </li>          
+    </ul>
+    <script>
+        $(".first>li").click(function(){
+            var sub = $(this).children(".sub");
+            sub.slideDown(1000);
+            $(this).children("span").addClass("cursor");
+            var sib = $(this).siblings().children(".sub");
+            sib.slideUp(1000);
+            $(this).siblings().children("span").removeClass("cursor");
+        })
+    </script>
+</body>
+</html>
